@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LManda - الماندا</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-gray-100 text-gray-900">
 
@@ -29,9 +28,12 @@
       <!-- Player Stats -->
       <div id="playerStats" class="flex flex-wrap gap-4 justify-center mb-6"></div>
 
+      <!-- Current Turn -->
+      <div id="turnIndicator" class="text-lg font-semibold mb-4"></div>
+
       <!-- Board -->
-      <div class="grid grid-cols-5 gap-4 max-w-2xl mx-auto">
-        <!-- Game board will be generated dynamically -->
+      <div id="board" class="grid grid-cols-5 gap-4 max-w-2xl mx-auto mb-6">
+        <!-- Game board will be dynamically generated -->
       </div>
 
       <!-- Game Controls -->
@@ -39,6 +41,7 @@
         <button id="rollDice" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
           زهر اللعب
         </button>
+        <div id="spinner" class="mt-4 mx-auto h-16 w-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin hidden"></div>
         <p id="diceResult" class="mt-4 text-lg font-semibold"></p>
       </div>
     </div>
