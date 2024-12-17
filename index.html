@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LManda - الماندا</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <div class="container mx-auto p-6 text-center">
+    <h1 class="text-4xl font-bold mb-6">LManda - الماندا</h1>
+
+    <!-- Game Setup -->
+    <div id="setup" class="mb-6">
+      <h2 class="text-2xl font-semibold mb-4">إعداد اللعبة</h2>
+      <label for="players" class="block mb-2 text-lg">عدد اللاعبين:</label>
+      <input type="number" id="players" class="border rounded px-4 py-2" placeholder="مثلاً 2" min="2" max="6">
+      <button id="startGame" class="bg-blue-500 text-white px-6 py-2 mt-4 rounded hover:bg-blue-600">
+        بدأ اللعبة
+      </button>
+    </div>
+
+    <!-- Game Board -->
+    <div id="game" class="hidden">
+      <h2 class="text-2xl font-semibold mb-4">مجريات اللعبة</h2>
+
+      <!-- Player Stats -->
+      <div id="playerStats" class="flex flex-wrap gap-4 justify-center mb-6"></div>
+
+      <!-- Board -->
+      <div class="grid grid-cols-5 gap-4 max-w-2xl mx-auto">
+        <!-- Game board will be generated dynamically -->
+      </div>
+
+      <!-- Game Controls -->
+      <div class="mt-6">
+        <button id="rollDice" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+          زهر اللعب
+        </button>
+        <p id="diceResult" class="mt-4 text-lg font-semibold"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
