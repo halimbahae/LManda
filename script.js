@@ -67,7 +67,7 @@ elements.playerCount.addEventListener('change', () => {
     const count = parseInt(elements.playerCount.value);
     elements.playerNames.innerHTML = Array.from({ length: count }, (_, i) => `
         <div>
-            <label class="block mb-2">اسم اللاعب ${i + 1}:</label>
+            <label class="block mb-2">السميَة د اللاعب ${i + 1}:</label>
             <input type="text" class="w-full p-2 border rounded" id="player${i}" 
                    placeholder="اللاعب ${i + 1}">
         </div>
@@ -184,12 +184,12 @@ function updateWinningProbabilities() {
     if (!probContainer) {
         probContainer = document.createElement('div');
         probContainer.id = 'winningProbabilities';
-        probContainer.className = 'mt-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow';
+        probContainer.className = 'mt-4 p-4 bg-white  rounded-lg shadow';
         elements.gameHistory.after(probContainer);
     }
     
     probContainer.innerHTML = `
-        <h3 class="font-bold mb-3">احتمالات الفوز</h3>
+        <h3 class="font-bold mb-3"> شكون يقدر يربح </h3>
         ${probabilitiesHtml}
     `;
 }
