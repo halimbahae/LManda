@@ -1,52 +1,80 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LManda - الماندا</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LManda - الماندا</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body >
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="fixed top-4 left-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+        🌓
+    </button>
 
-  <div class="container mx-auto p-6 text-center">
-    <h1 class="text-4xl font-bold mb-6">LManda - الماندا</h1>
-
-    <!-- Game Setup -->
-    <div id="setup" class="mb-6">
-      <h2 class="text-2xl font-semibold mb-4">إعداد اللعبة</h2>
-      <label for="players" class="block mb-2 text-lg">عدد اللاعبين:</label>
-      <input type="number" id="players" class="border rounded px-4 py-2" placeholder="مثلاً 2" min="2" max="6">
-      <button id="startGame" class="bg-blue-500 text-white px-6 py-2 mt-4 rounded hover:bg-blue-600">
-        بدأ اللعبة
-      </button>
+    <!-- Setup Screen -->
+    <div id="setup" class="container mx-auto p-6 max-w-md">
+        <h1 class="text-3xl font-bold text-center mb-6">LManda - الماندا</h1>
+        <div class="bg-white p-6 rounded-lg shadow">
+            <div class="mb-4">
+                <label class="block mb-2">عدد اللاعبين:</label>
+                <input type="number" id="playerCount" min="2" max="6" value="2" class="w-full p-2 border rounded">
+            </div>
+            <div id="playerNames" class="space-y-4"></div>
+            <button id="startGame" class="w-full mt-4 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                بدء اللعبة
+            </button>
+        </div>
     </div>
 
     <!-- Game Board -->
-    <div id="game" class="hidden">
-      <h2 class="text-2xl font-semibold mb-4">مجريات اللعبة</h2>
-
-      <!-- Player Stats -->
-      <div id="playerStats" class="flex flex-wrap gap-4 justify-center mb-6"></div>
-
-      <!-- Current Turn -->
-      <div id="turnIndicator" class="text-lg font-semibold mb-4"></div>
-
-      <!-- Board -->
-      <div id="board" class="grid grid-cols-5 gap-4 max-w-2xl mx-auto mb-6">
-        <!-- Game board will be dynamically generated -->
-      </div>
-
-      <!-- Game Controls -->
-      <div class="mt-6">
-        <button id="rollDice" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
-          زهر اللعب
-        </button>
-        <div id="spinner" class="mt-4 mx-auto h-16 w-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin hidden"></div>
-        <p id="diceResult" class="mt-4 text-lg font-semibold"></p>
-      </div>
+    <div id="game" class="hidden container mx-auto p-4">
+<!-- Game Header -->
+<div class="flex justify-between items-center mb-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+    <h2 class="text-2xl font-bold">LManda - الماندا</h2>
+    <div class="flex items-center gap-4">
+        <div id="currentDay" class="text-lg font-semibold">
+            اليوم: <span class="text-blue-600 dark:text-blue-400">1</span>
+        </div>
     </div>
-  </div>
+</div>
 
-  <script src="script.js"></script>
+        <div class="flex flex-col md:flex-row gap-4">
+            <!-- Sidebar -->
+            <div class="md:w-64 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-bold mb-4">سجل اللعبة</h3>
+                <div id="gameHistory" class="space-y-2 max-h-[500px] overflow-y-auto"></div>
+            </div>
+
+            <!-- Main Game Area -->
+            <div class="flex-1">
+                <!-- Player Stats -->
+                <div id="playerStats" class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6"></div>
+
+                <!-- Board -->
+                <div id="board" class="grid grid-cols-7 gap-2 mb-6"></div>
+
+                <!-- Controls -->
+                <div class="text-center space-y-4">
+                    <div id="dice" class="dice mx-auto">⚀</div>
+                    <button id="rollDice" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+                        رمي النرد
+                    </button>
+                </div>
+
+                <!-- Player Choices -->
+                <div id="choices" class="hidden mt-6 text-center">
+                    <h3 class="text-lg font-bold mb-4">اختر قرارك:</h3>
+                    <div class="space-x-4">
+                        <button class="choice bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">خيار أ</button>
+                        <button class="choice bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">خيار ب</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
